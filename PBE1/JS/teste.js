@@ -51,18 +51,20 @@
 
 // ----------------------------------------------------------------------
 
-function criarContador(){
-    let contador = 0;
+// function criarContador(){
+//     let contador = 0;
 
-    return function() {
-        contador++;
-        return contador;
-    };
-};
+//     return function() {
+//         contador++;
+//         return contador;
+//     };
+// };
 
-const meuContador = criarContador();
+// const meuContador = criarContador();
 
-console.log(meuContador())
-console.log(meuContador())
-console.log(meuContador())
+// console.log(meuContador())
+// console.log(meuContador())
+// console.log(meuContador())
+
+// ----------------------------------------------------------------------
 
