@@ -1,5 +1,7 @@
 from time import sleep
 
+# --------------------------------------------------------------------------------------
+
 # Desafio 1
 # Escreva um programa em Python que receba o número de dias que um carro foi alugado e a quantidade de Km rodados.
 # - O aluguel custa R$90,00 por dia;
@@ -27,8 +29,6 @@ valor_final = valor_km + valor_dias
 
 print(f"O valor final a ser pago é de R${valor_final:.2f}!")
 sleep(1)
-
-
 
 # Dado o seguinte código inicial com uma lista de
 # números:
@@ -59,6 +59,8 @@ media = soma / i
 print(f"Da lista {numeros}, os números pares são {pares}! E a média deles é de {media}")
 sleep(1)
 
+# -------------------------------------------------------------------------------------- 
+
 # Desafio 3: Funções e Dicionários (O Desconto no Produto)
 # Enunciado em Python: Crie um dicionário representando um produto: produto =
 # {&quot;nome&quot;: &quot;Teclado Mecânico&quot;, &quot;preco&quot;: 200.0, &quot;estoque&quot;: 15}
@@ -85,3 +87,14 @@ produto["preço"] = novo_valor
 nome_produto = produto.get("nome")
 print(f"O produto {nome_produto} agora custa {produto['preço']}!")
 
+# --------------------------------------------------------------------------------------
+
+print("===== Desafio 3 - Professor =====")
+
+produto = {"nome": "Teclado Mecânico", "preço": 200.0, "estoque": 15}
+
+def aplicar_desconto(item, porcentagem):
+    item["preco"] -= item["preco"] * (porcentagem/100)
+    print(f"O produto {item["nome"]} agora custa R$ {item["preco"]:.2f}")
+
+aplicar_desconto(produto, 10)
