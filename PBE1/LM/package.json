@@ -1,0 +1,21 @@
+{
+  "name": "LM",
+  "displayName": "LM_theme",
+  "description": "Um tema baseado na equipe de robótica Laranja Mecânica",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Mostra um tema baseado na LM",
+        "uiTheme": "vs-dark",
+        "path": "./themes/Mostra um tema baseado na LM-color-theme.json"
+      }
+    ]
+  }
+}

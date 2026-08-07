@@ -10,5 +10,5 @@ const temImovel = entrada.keyInYNStrict("Possui imovel proprio?")
 if (idade >= 18 && (renda >= 2500 || temImovel === true)){
     console.log(`\nPARABENS, ${nome}! Seu credito foi APROVADO!`);
 } else{
-    console.log("RECUSADO!");
+    console.log(`Sinto muito, ${nome}. Seu credito foi NEGADO`);
 }
