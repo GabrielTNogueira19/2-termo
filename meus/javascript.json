@@ -1,0 +1,29 @@
+{
+
+	"Print to console": {
+		"prefix": "zx",
+		"body": [
+			"console.log($1);",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+
+	"readline-sync": {
+		"prefix": "ent",
+		"body": [
+			"const entrada = require('readline-sync');",
+			"$2"
+		],
+	},
+
+	"if": {
+		"prefix": "iif",
+		"body": [
+			"if ($1){",
+				"$2",
+			"}"
+		],
+	}
+	
+}

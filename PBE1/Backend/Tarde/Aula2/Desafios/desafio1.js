@@ -8,7 +8,7 @@ const dataNascimento = entrada.questionInt("Insira seu ano de nascimento: ");
 const idade = 2026 - dataNascimento;
 
 if (idade >= 16){
-    console.log(`${nome}, você está apto para votar!`);
+    console.log(`${nome}, você esta apto para votar!`);
 } else {
-    console.log("Você ainda não tem idade minima para votar!");
+    console.log("Voce ainda não tem idade minima para votar!");
 }
