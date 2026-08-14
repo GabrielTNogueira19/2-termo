@@ -10,7 +10,7 @@ const idade = entrada.questionInt("Insira sua idade: ")
 
 for(let i = 0; i < cinema.length; i++){
 
-    if (idade > cinema[i].idadeMinima){
+    if (idade >= cinema[i].idadeMinima){
         console.log(`Voce pode ver o filme: ${cinema[i].filme}`);
     }
 }
