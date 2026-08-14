@@ -1,7 +1,5 @@
 const entrada = require('readline-sync');
 
-filmesLiberados = []
-
 const cinema = [
     {filme: "batman", idadeMinima: 14 },
     {filme: "cinderela", idadeMinima: 0 },
