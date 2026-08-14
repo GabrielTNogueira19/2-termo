@@ -1,0 +1,6 @@
+Responsável para registrar as informações dobre os clientes do Hotel.
+Possuí relação com: Reserva e Lazer.
+
+Campo atribuido chave primária - PK
+Tipo de dados: INT
+Possui: Auto Incremento
