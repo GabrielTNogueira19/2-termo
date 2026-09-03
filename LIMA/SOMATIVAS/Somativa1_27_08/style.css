@@ -38,6 +38,7 @@ h3, h5{
 .devWeb, .devSis, .bcd, .consul{
     background-color: rgba(230, 240, 245);
     margin: 20px;
+    border: gray 1px solid;
 
 }
 
