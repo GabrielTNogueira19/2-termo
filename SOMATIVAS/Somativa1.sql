@@ -1,3 +1,4 @@
+-- Active: 1788519225521@@127.0.0.1@3306@oficina_gabriel
 CREATE DATABASE IF NOT EXISTS Oficina_Gabriel;
 
 USE oficina_Gabriel;
@@ -91,7 +92,6 @@ CREATE TABLE if NOT exists Pagamentos(
     taxa_funcionario DECIMAL(5,2),
     valor_pagar DECIMAL(6,2) NOT NULL,
     forma_pagamento ENUM("Débito", "Crédito", "Pix", "Dinheiro") DEFAULT "Débito",
-    parcelas INT,
     data_pagamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
@@ -105,3 +105,27 @@ CREATE TABLE if NOT exists Fornecedores(
     ultimo_fornecimento TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 
+ALTER TABLE clientes ADD email_cliente VARCHAR(50);
+ALTER TABLE veiculos ADD km_rodados INT;
+ALTER TABLE marcas ADD modelos_marca VARCHAR(200);
+ALTER TABLE modelos ADD material_modelo VARCHAR(20);
+ALTER TABLE funcionarios ADD especializacao VARCHAR(50);
+ALTER TABLE servicos ADD materiais_usados VARCHAR(50);
+ALTER TABLE pecas ADD especificacao VARCHAR(50);
+ALTER TABLE ordens_servicos ADD observacao VARCHAR(250);
+ALTER TABLE pagamentos ADD parcelas INT;
+ALTER TABLE Fornecedores ADD telefone_forncedor CHAR(15);
+
+
+ALTER TABLE clientes DROP email_cliente;
+ALTER TABLE veiculos DROP km_rodados;
+ALTER TABLE marcas DROP modelos_marca;
+ALTER TABLE modelos DROP material_modelo;
+ALTER TABLE funcionarios DROP especializacao;
+ALTER TABLE servicos DROP materiais_usados;
+ALTER TABLE pecas DROP especificacao;
+ALTER TABLE ordens_servicos DROP observacao;
+ALTER TABLE pagamentos DROP parcelas;
+ALTER TABLE Fornecedores DROP telefone_forncedor;
+
+ALTER TABLE modelos RENAME modelos_fab;
