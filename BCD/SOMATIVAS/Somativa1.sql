@@ -77,12 +77,9 @@ CREATE TABLE if NOT exists ordens_servicos(
 CREATE TABLE if NOT exists Pagamentos(
     id_pagamento INT AUTO_INCREMENT PRIMARY KEY,
 
-    valor_servico DECIMAL(6,2) NOT NULL,
-    taxa_funcionario DECIMAL(5,2),
-    valor_pagar DECIMAL(6,2) NOT NULL,
+    valor_pagar DECIMAL(6,2),
     forma_pagamento ENUM("Débito", "Crédito", "Pix", "Dinheiro") DEFAULT "Débito",
-    parcelas INT,
-    data_pagamento TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
 )
 
 CREATE TABLE if NOT exists Fornecedores(
