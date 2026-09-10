@@ -12,4 +12,7 @@ while ((novoVisitante = entrada.keyInYNStrict("Deseja cadastrar um novo visitant
 }
 
 console.log("=== LISTA DE VISITANTES ===");
-console.log(listaVisistantes);
+// console.log(listaVisistantes);
+for(let i = 0; i < listaVisistantes.length; i++){
+    console.log(`Visitante ${i+1} - Nome: ${listaVisistantes[i].nome} | Empresa: ${listaVisistantes[1].empresa}`)
+}
