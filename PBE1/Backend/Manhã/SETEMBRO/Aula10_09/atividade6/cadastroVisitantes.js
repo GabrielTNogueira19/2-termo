@@ -4,7 +4,7 @@ let listaVisistantes = [];
 
 let novoVisitante = true;
 
-while (novoVisitante = entrada.keyInYNStrict("Deseja cadastrar um novo visitante? ") === true){
+while ((novoVisitante = entrada.keyInYNStrict("Deseja cadastrar um novo visitante? ")) === true){
     let nomeVisitante = entrada.question("Informe seu nome completo: ")
     let empresaVisitante = entrada.question("Informe o nome da sua empresa: ")
 
