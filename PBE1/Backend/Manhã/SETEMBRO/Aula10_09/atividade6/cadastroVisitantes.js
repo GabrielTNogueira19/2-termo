@@ -2,7 +2,7 @@ const entrada = require('readline-sync');
 
 let listaVisistantes = [];
 
-let novoVisitante = true;
+// let novoVisitante = true;
 
 while ((novoVisitante = entrada.keyInYNStrict("Deseja cadastrar um novo visitante? ")) === true){
     let nomeVisitante = entrada.question("Informe seu nome completo: ")
