@@ -46,4 +46,19 @@ FOREIGN KEY(ID_produto) REFERENCES Produto (ID_produto),
 FOREIGN KEY(ID_fornecedor) REFERENCES Fornecedor (ID_fornecedor)
 )
 
-DROP DATABASE sesi_cr_ta;
+-- DESAFIOS:
+
+-- ### Questão 1 - Uma categoria pode possuir vários produtos. Cada produto pertence a apenas uma categoria:
+-- RESPOSTA: Categoria(1,n) -- Possui -- (1,1)Produto
+
+-- ### Questão 2 - Um funcionário pode registrar vários pedidos. Cada pedido é registrado por um funcionário:
+-- RESPOSTA: Funcionario(1,n) -- Registra -- (1,1)Pedido
+
+-- ### Questão 3 - Um fornecedor comercializa vários produtos, e o mesmo produto pode ser comprado de vários fornecedores:
+-- RESPOSTA: Fornecedor(1,n) -- Comercializa -- (1,n)Produto
+
+-- ### Questão 4 - Uma mesa pode existir sem nenhuma reserva futura. Uma reserva deve estar vinculada a uma mesa:
+-- RESPOSTA: Cliente(0,n) -- Reserva -- (1,1)Reserva
+
+-- ### Questão 5 - Um pedido possui vários itens. Um item de pedido pertence a um único pedido.
+-- RESPOSTA: Pedido(1,n) -- Possui -- (1,1)item
