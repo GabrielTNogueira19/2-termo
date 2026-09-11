@@ -46,8 +46,6 @@ FOREIGN KEY(ID_produto) REFERENCES Produto (ID_produto),
 FOREIGN KEY(ID_fornecedor) REFERENCES Fornecedor (ID_fornecedor)
 )
 
--- DESAFIOS:
-
 -- ### Questão 1 - Uma categoria pode possuir vários produtos. Cada produto pertence a apenas uma categoria:
 -- RESPOSTA: Categoria(1,n) -- Possui -- (1,1)Produto
 
