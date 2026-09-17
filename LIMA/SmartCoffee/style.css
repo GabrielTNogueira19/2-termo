@@ -1,0 +1,78 @@
+body{
+    margin: 0;   
+    background-color: rgba(245, 245, 245);
+    font-family: Arial;
+}
+header{
+    background-color: rgb(87, 53, 18);
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #F4B883; 
+    padding: 5px;
+    max-width: 500px; 
+}
+
+header img{
+    background-color: #d0d0d0;
+    border: 4px rgb(255, 255, 255) solid;
+    width: 100px;
+    height: 100px;
+    display: flex;
+}
+
+header p{
+    margin: 10px;
+    background-color: #fff8f0;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.box {
+    flex-grow: 1;
+    text-align: center;
+    color: black;
+    margin: 0;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+main{
+    margin: 30px;
+}
+
+#fraseDia{
+    background-color: #FAE6D5;
+    padding: 5px;
+    margin: 15px;   
+}
+
+#fraseDia h3{
+    margin: 5px;
+}
+
+#produtosM{
+    display: flex;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.produtosMo img{
+    background-color: #d0d0d0;
+    border: 4px rgb(255, 255, 255) solid;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    margin: 20px;
+} 
+
+.produtosMo p{
+    border: 2px black solid;
+    margin: 20px;
+}
