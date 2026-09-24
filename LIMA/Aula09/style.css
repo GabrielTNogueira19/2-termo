@@ -1,0 +1,204 @@
+.bungee-inline-regular {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.merriweather{
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings:
+    "width" 100;
+}
+
+body{
+    background-color: #FFF5E8;
+}
+
+
+.cabeçalhoSC {
+  display: grid;
+  grid-template-columns: 120px 1fr; 
+  grid-template-rows: auto auto;
+  border: 2px solid #ffffff; 
+  background-color: #F4B883; 
+  padding: 0;
+  box-sizing: border-box;
+  box-shadow: 1px 5px 5px rgb(138, 136, 136);
+  margin: 0 2% 0 2%;
+  
+}
+
+
+.cabeçalhoSC img {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  background-color: #cacac9;
+  border-right: 2px solid #ffffff; 
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+.cabeçalhoSC h1 {
+  grid-column: 2;
+  grid-row: 1;
+  background-color: transparent; 
+  width: 100%;
+  padding: 15px 10px 5px 10px;
+  margin: 0;
+  font-family: "Bungee Inline", sans-serif;
+  font-size: 22px;
+  text-align: center;
+}
+
+
+.cabeçalhoSC p {
+  grid-column: 2;
+  grid-row: 2;
+  background-color: #FFF5E8; 
+  border: none;
+  width: 85%; 
+  margin: 5px auto 15px auto; 
+  padding: 8px 10px;
+  text-align: center;
+  box-sizing: border-box;
+  font-family: "Merriweather";
+  font-size: 12px;
+}
+
+.frase{
+    margin: 2% 5% 0 5%;
+    background-color: #FAE6D5;
+    padding: 5px 15px;
+    font-family: "Merriweather";
+    font-size: 12px;
+    box-shadow: 1px 5px 5px rgb(138, 136, 136);
+}
+
+.frase p{
+    margin-left: 20px;
+}
+
+.destaque li{
+    display: flex;
+    justify-content: space-between ;
+    /* margin-left: 30%;
+    margin-right: 30%; */
+    margin: 5% 20% 0 20%;
+}
+
+.cardCafe h3{
+    background-color: #F4B883;
+    min-width: 150px;
+    min-height: 30px;
+    margin: 0;          
+    display: block;
+    border: 1px rgb(187, 187, 187) solid;
+    padding: 2px
+}
+
+.cardCafe img{
+    background-color: #cacac9;
+    min-width: 150px;
+    min-height: 150px;
+    margin: 0;           
+    display: block;
+    border: 1px rgb(187, 187, 187) solid;
+    padding: 2px
+}
+
+.cardCafe p{
+    background-color: #B27E4B;
+    min-width: 150px;
+    min-height: 30px;
+    margin: 0;          
+    display: block;
+    border: 1px rgb(187, 187, 187) solid;
+    padding: 2px
+}
+
+.cardCafe{
+    box-shadow: 5px 5px 5px rgb(138, 136, 136);
+    font-family: "Merriweather";
+    font-size: 15px;
+    text-align:center;
+    
+}
+
+.destaque button{
+    display: block;
+    margin: 2% auto;
+    padding: 10px;
+    min-width: 300px;
+    background-color: #B27E4B;
+    border: 1px rgb(187, 187, 187) solid;   
+    box-shadow: 5px 10px 5px rgb(138, 136, 136);
+    font-family: "Merriweather";
+    font-size: 15px;
+}
+
+.sobreNos{
+    background-color: #FAE6D5;
+    padding: 30px;
+    margin: 5% 20% 0 20%;
+    box-shadow: 5px 10px 5px rgb(138, 136, 136);
+    font-family: "Merriweather";
+    font-size: 15px;
+    display: grid;
+}
+.sobreNos h2{
+    grid-row: 1;
+}
+.sobreNos p{
+    grid-row: 2;
+    max-width: 80%;
+}
+
+.sobreNos button{
+    grid-row: 2;
+    padding: 10px;
+    min-width: 150px;
+    max-height: 50px;
+    background-color: #B27E4B;
+    border: 1px rgb(187, 187, 187) solid;   
+    box-shadow: 5px 10px 5px rgb(138, 136, 136);
+    font-family: "Merriweather";
+    font-size: 15px;
+}
+
+.conhecaAmbiente{
+    background-color: #FAE6D5;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 5% 10% 0 10%;
+    box-shadow: 5px 10px 5px rgb(138, 136, 136);
+    font-family: "Merriweather";
+    font-size: 15px;
+    display: grid;
+    height: 500px;
+    display: grid;
+}
+
+.conhecaAmbiente h2{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.conhecaAmbiente p{
+    grid-column: 2;
+    grid-row: 3;
+    
+}
+
+.conhecaAmbiente img{
+    grid-column: 1;
+    grid-row: 2;
+    background-color: #cacac9;
+    max-width: 70%;
+    /* min-height: 100px; */
+}
