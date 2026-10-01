@@ -1,0 +1,38 @@
+.equipe{
+    display: flex;
+    gap: 30px;
+    /* justify-content: flex-start; */
+    /* ---- Alinha o conteudo no começo, esquerda, da página */
+    /* justify-content: center; */
+    /* ---- Alinha o conteudo no centro da página */
+    /* justify-content: flex-end; */
+    /* ---- Alinha o conteudo no fim, direita, da página */
+    /* justify-content: space-between; */
+    /* ---- Separa o conteudo igualmente pela largura da página */
+    justify-content: space-evenly;
+    /* ---- Centraliza e separa igualmente o conteudo com espaços igueais nos lados */
+}
+
+.a p{
+    display: flex;
+    align-items: flex-start;
+    height: 100px;
+}
+.b p{
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+.c p{
+    display: flex;
+    align-items: flex-end;
+    height: 100px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+}
+
+/* Em qual elemento o display: flex deveria ser aplicado? */
+/* Resposta: Ele deve ser apicado apenas no ".card{}" */

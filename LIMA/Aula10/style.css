@@ -1,0 +1,99 @@
+header{
+    display: flex;
+    /* justify-content: space-between;
+    align-items: center; */
+}
+
+.intro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cursos{
+    display: flex;
+}
+
+.menu{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+    gap: 40px;
+    list-style: none;
+    /* justify-content: center; */
+    /* flex-direction: column; */
+    /* align-items: end; */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-cartao{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 8%;
+}
+
+.texto{
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+/* section ul, li{
+    display: flex;
+    flex-wrap: wrap;
+} */
+
+/* li{
+    display: flex;
+    flex: 1;
+    padding: 10px;
+} */
+
+.exemplo-b{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.exemplo-b-c, .exemplo-b-i{
+    flex: 1;
+}
+
+.exemplo-b-i{
+    margin: 0;
+}
+
+.exemplo-b-i img{
+    width: 100%;
+    display: block;
+}
+
+.card-e{
+    display: flex;
+    gap: 23px;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 20px;
+}
+
+.card-e > li{
+    /* flex: 1; */
+    display: flex;
+    /* min-width: 220px; */
+}
+
+.contato{
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 10px 16%;
+}
+
+.contato-c, .contato{
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+}
