@@ -7,7 +7,8 @@ header{
     background-color: rgb(87, 53, 18);
     color: white;
     text-align: center;
-    padding: 30px;
+    padding: 10px;
+    display: grid;
 }
 
 .logo{
@@ -32,6 +33,11 @@ header p{
     background-color: #fff8f0;
     padding: 10px;
     font-size: 12px;
+}
+
+nav{
+    grid-column: 5;
+    gap: 1500px;    
 }
 
 .box {
@@ -61,19 +67,22 @@ main{
     display: flex;
     margin-left: 20%;
     margin-right: 20%;
+    justify-content: space-between;
 }
 
 .produtosMo img{
     background-color: #d0d0d0;
-    border: 4px rgb(255, 255, 255) solid;
+    border: 4px rgb(0, 0, 0) solid;
     width: 100px;
     height: 100px;
     display: flex;
     justify-content: center;
-    margin: 20px;
+    margin: 0px 20px;
 } 
 
 .produtosMo p{
-    border: 2px black solid;
-    margin: 20px;
+    border: 2px rgb(0, 0, 0) solid;
+    margin: 0px 20px;
+    background-color: #F4B883
 }
+
