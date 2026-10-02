@@ -9,15 +9,15 @@ const materiais = [
     },
     { 
         codigo: 102, 
-        descricao: "Alumínio", 
-        quantidade: 30, 
-        valorUnitario: 25.00 
+        descricao: "Aluminio", 
+        quantidade: 75, 
+        valorUnitario: 47.00 
     },
     { 
         codigo: 103, 
         descricao: "Cobre", 
-        quantidade: 20, 
-        valorUnitario: 40.00
+        quantidade: 115, 
+        valorUnitario: 38.00
     } 
 ];
 
