@@ -1,0 +1,20 @@
+[
+  {
+    "codigo": 101,
+    "nome": "Martelo",
+    "setor": "setor-A",
+    "operacional": true
+  },
+  {
+    "codigo": 102,
+    "nome": "Parafusadeira",
+    "setor": "setor-B",
+    "operacional": true
+  },
+  {
+    "codigo": 103,
+    "nome": "Freza",
+    "setor": "setor-C",
+    "operacional": false
+  }
+]
