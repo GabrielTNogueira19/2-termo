@@ -1,0 +1,73 @@
+/* EX 01  */
+/* .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+} */
+
+/* EX 02  */
+/* .grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+} */
+
+/* EX 03 */
+/* .grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: aqua;
+} */
+/* A coluna com 2fr ficou maior */
+
+/* EX 04 */
+/* .grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    background-color: aqua;
+} */
+
+/* EX 05 */
+/* .grid{
+    display: grid;
+}
+
+@media (max-width: 1000px){
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px){
+    .grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+} */
+
+/* EX 06 */
+.grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+@media (max-width: 1000px){
+    .grid{
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 700px){
+    .grid{
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 500px){
+    .grid{
+        grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    }
+}

@@ -1,0 +1,55 @@
+.grid-lista{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 43px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.grid-img{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 23px;
+    list-style: none;
+    padding: 0;
+}
+
+img{
+    max-width: 200px;
+}
+
+.grid-teste{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 23px;
+}
+
+@media (min-width: 200px){
+    .grid-img{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+@media (min-width: 500px){
+    .grid-img{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 768px){
+    .grid-img{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (min-width: 1024px){
+    .grid-img{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* exemplo com flex box */
+
+img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
