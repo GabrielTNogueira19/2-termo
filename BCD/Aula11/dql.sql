@@ -248,3 +248,24 @@ GROUP BY cidade;
 SELECT id_categoria, COUNT(*) AS QTDE_PRODUTOS
 FROM produto
 GROUP BY id_categoria;
+
+-- --------------------------------------------------------------
+-- EX16 - HAVING - CRIAR CONDICOES POR CATEGORIA
+-- WHERE FILTRA LINHAS ANTES DO AGRUPAMENTO
+-- HAVING FILTRA LINHAS DEPOIS DO GROUP BY
+
+SELECT cidade, COUNT(*) AS QTDE_CLIENTES
+FROM cliente
+GROUP BY cidade
+HAVING COUNT(*) <= 10;
+
+-- --------------------------------------------------------------
+-- EX17 - RESUMO DE UMA CONSULTA COMPLETA
+
+-- SELECT colunas
+-- FROM tabela
+-- WHERE condicao
+-- GROUP BY coluna_agrupar
+-- HAVING condicao_agrupar
+-- ORDER BY colunas
+-- LIMIT quantidade

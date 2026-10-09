@@ -177,7 +177,7 @@ SET @cliente_compra = LAST_INSERT_ID();
 -- Passo 2: realizar pedido
 
 INSERT INTO pedido (data_pedido, status_pedido, valor_total, id_cliente) VALUES
-(NOW(), 'ABERTO', 0.00, @cliente_compra);
+(NOW(), 'FINALIZANDO', 75.00, 12);
 SET @pedido_compra = LAST_INSERT_ID();
 
 -- Passo 3: inserindo itens
