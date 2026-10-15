@@ -44,7 +44,8 @@ WHERE preco BETWEEN 8.00 AND 15.00;
 -- 7. Liste os clientes das cidades Limeira ou Americana.
 
 SELECT nome, cidade FROM cliente
-WHERE cidade = 'limeira' or cidade = 'americana';
+-- WHERE cidade = 'limeira' or cidade = 'americana';
+WHERE cidade IN ('limeira', 'americana');
 
 
 -- 8. Localize os produtos cujo nome contém a palavra “Café”.

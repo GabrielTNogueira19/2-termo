@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <script src="/LIMA/PROJETO/SmartCoffee/script.js"></script>
+</head>
+<body>
+    <header>
+        <section id="cabeçalho" class="cabeçalhoSC">
+        <h1>SmartCoffe</h1>
+        <img src="" alt="Logo SmartCoffe">
+        <p>
+            O que o mundo esfria um café pode aquecer!
+        </p>
+        
+        <nav>
+           <li><a href="#inicio">Página Inicial</a></li> 
+           <li><a href="#produtosDestaque">Produtos Destaque</a></li>
+           <li><a href="#sobre">Sobre</a></li>
+           <li><a href="#ambiente">Ambiente</a></li>
+           <li><a href="#contato">Contato</a></li>
+        </nav>
+        </section>
+    </header>
+
+    <main>
+        <section id="fraseDia" class="frase">
+            <h2>Frase do dia:</h2>
+            <p>
+                O café é a prova de que pequenos momentos podem ser grandes fontes de prazer.
+            </p>
+        </section>
+
+        <section id="produtosDestaque" class="destaque">
+            <h2>Produtos em Destaque</h2>
+
+            <div class="slideshow-container">
+
+                <article class="cards">
+                    <img src="/LIMA/PROJETO/SmartCoffee/assets/cappuccino.png" alt="Cappuccino">
+                    <h3>Cappuccino</h3>
+                    <p>R$ 15,00</p>
+                </article>
+
+                <article class="cards">
+                    <img src="/LIMA/PROJETO/SmartCoffee/assets/cafe-preto.png" alt="Café Preto">
+                    <h3>Café Preto</h3>
+                    <p>R$ 8,00</p>
+                </article>
+
+                <article class="cards">
+                    <img src="/LIMA/PROJETO/SmartCoffee/assets/pingado.png" alt="Pingado">
+                    <h3>Pingado</h3>
+                    <p>R$ 10,00</p>
+                </article>
+
+                <article class="cards">
+                    <img src="/LIMA/PROJETO/SmartCoffee/assets/shake.png" alt="Shake">
+                    <h3>Shake</h3>
+                    <p>R$ 20,00</p>
+                </article>
+
+                <article class="cards">
+                    <img src="/LIMA/PROJETO/SmartCoffee/assets/latte.png" alt="Latte">
+                    <h3>Latte</h3>
+                    <p>R$ 16,00</p>
+                </article>
+
+                <button class="antes" onclick="plusSlides(-1)"
+                    aria-label="Produto anterior">&#10094;</button>
+
+                <button class="depois" onclick="plusSlides(1)"
+                    aria-label="Próximo produto">&#10095;</button>
+            </div>
+
+            <div class="indicadores">
+                <span class="pontos" onclick="currentSlide(1)"></span>
+                <span class="pontos" onclick="currentSlide(2)"></span>
+                <span class="pontos" onclick="currentSlide(3)"></span>
+                <span class="pontos" onclick="currentSlide(4)"></span>
+                <span class="pontos" onclick="currentSlide(5)"></span>
+            </div>
+
+            <button class="botaoCardapio">
+                Acessar Cardápio Completo
+            </button>
+        </section>
+
+        <section id="sobre" class="sobreNos">
+            <h2>Sobre Nós:</h2>
+            <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore sed voluptatem libero repellendus incidunt cumque cupiditate aperiam pariatur architecto at consequuntur quod, itaque omnis quidem eveniet unde eligendi quam inventore!
+            </p>
+            <button>Saiba Mais</button>
+        </section>
+
+        <section id="ambiente" class="conhecaAmbiente">
+            <h2>Ambiente:</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vel adipisci non eum officia. Nisi neque reprehenderit sint dicta officia incidunt cumque natus architecto eligendi, quibusdam at obcaecati ducimus repudiandae! Magni!
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente, officia labore autem sunt optio nulla eos modi reprehenderit quisquam sit quibusdam voluptatibus harum quam, placeat, tenetur fugiat! Odit, cumque impedit.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae modi saepe sequi odio. Enim, consectetur debitis? Incidunt hic, placeat quia accusantium doloribus perspiciatis suscipit exercitationem, tenetur ullam possimus amet. Commodi!
+            </p>
+            <img src="/Aula09/acess/Gemini_Generated_Image_z25wflz25wflz25w.jpg" alt="">
+        </section>
+
+        <section id="contato" class="nossoContato">
+            <header>
+            <h2>Contato:</h2>
+            <p>
+                Fale com a gente!
+            </p>
+            </header>
+
+            <form>
+                <label for="nome"><strong>Nome</strong></label><br>
+                <input type="text" id="nome" name="nome"><br>
+
+                <label for="email"><strong>Email</strong></label><br>
+                <input type="email" id="email" name="email"><br>
+
+                <label for="mensagem"><strong>Mensagem</strong></label> <br>
+                <textarea name="mensagem" id="mensagem"></textarea><br>
+
+                <button type="submit">Enviar Mensagem</button><br>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <h3>SmartCoffe</h3>
+
+        
+    </footer>
+</body>
+</html>

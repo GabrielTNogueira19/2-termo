@@ -1,0 +1,99 @@
+:root{
+  --base: #FFF5E8;
+  --carameloClaro: #F4B883;
+  --marrom: #B27E4B;
+  --cinza: rgb(138, 136, 136);
+  --caramelo: #F4B883;
+  --marromEscuro:#ad7a4c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFF5E8;
+  margin: 0;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Ubuntu", sans-serif;
+    color: #fff;
+    background-color: #2B170D;
+    margin: 0;
+    padding: 20px 8%;
+}
+
+nav {
+    display: flex;
+    align-items: right;
+    background-color: #2B170D;
+    padding: 0px;
+}
+
+nav a {    
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.menu {
+    display: flex;
+    gap: 23px;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 8%;           
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F3E6D7;
+    gap: 23px;
+    padding: 60px 8%;
+}
+
+.banner-texto {
+    font-size: 20px;
+    color: #C66A1A;
+    margin-bottom: 10px;
+}
+
+.banner-conteudo, .banner-imagem{
+    flex: 1;
+}
+
+.banner-imagem{
+    margin: 0;
+}
+
+.banner-imagem img{
+    width: 100%;
+    border-radius: 18px;
+}
+
+.btn-principal{
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 24px;
+    background-color: var(--caramelo);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.btn-principal:hover{
+    background-color: var(--marromEscuro);
+}
+.btn-principal{
+    transition: background-color 0.2 ease;
+}

@@ -1,88 +1,352 @@
-body{
-    margin: 0;   
-    background-color: rgba(245, 245, 245);
-    font-family: Arial;
+.bungee-inline-regular {
+  font-family: "Bungee Inline", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-header{
-    background-color: rgb(87, 53, 18);
-    color: white;
+
+.merriweather {
+  font-family: "Merriweather", serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-variation-settings: "width" 100;
+}
+
+:root{
+  --base: #FFF5E8;
+  --carameloClaro: #F4B883;
+  --marrom: #B27E4B;
+  --cinza: rgb(138, 136, 136);
+  --caramelo: #F4B883;
+  --marromEscuro:#ad7a4c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #FFF5E8;
+  margin: 0;
+  background-image: url(/LIMA/PROJETO/SmartCoffee/assets/desenhos-manuais-de-fundo-de-cafe-graos-de-cafe-bege-claro_638892-1669.webp);
+  mask-border-repeat: no-repeat;
+}
+
+.cabeçalhoSC {
+  background-color: #F4B883;
+  padding: 20px;
+  text-align: center;
+}
+
+.cabeçalhoSC img {
+  max-width: 100px;
+  height: auto;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.cabeçalhoSC h1 {
+  font-family: "Bungee Inline", sans-serif;
+  font-size: 24px;
+  margin: 0 0 5px 0;
+}
+
+.cabeçalhoSC p {
+  font-family: "Merriweather", serif;
+  font-size: 13px;
+  margin: 0;
+  background-color: #FFF5E8;
+  padding: 5px;
+}
+
+nav {
+  background-color: #B27E4B;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 2fr));
+  /* justify-content: center; */
+  gap: 20px;
+  padding: 10px 0;
+  list-style: none;
+  margin-top: 10px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: "Merriweather", serif;
+  font-size: 14px;
+  padding: 5px 10px;
+}
+
+nav a:hover {
+  color: #FFF5E8;
+  text-decoration: underline;
+}
+
+.frase {
+  margin: 5% 10%;
+  background-color: #FAE6D5;
+  padding: 5px 15px;
+  font-family: "Merriweather";
+  font-size: 12px;
+  box-shadow: 1px 5px 5px rgb(138, 136, 136);
+}
+
+.frase p {
+  margin-left: 20px;
+}
+.destaque {
+    margin: 5% 10%;
+    font-family: "Merriweather", serif;
     text-align: center;
-    padding: 10px;
-    display: grid;
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #F4B883; 
-    padding: 5px;
-    max-width: 500px; 
+.destaque h2 {
+    color: #75451F;
+    margin-bottom: 25px;
 }
 
-header img{
-    background-color: #d0d0d0;
-    border: 4px rgb(255, 255, 255) solid;
-    width: 100px;
-    height: 100px;
-    display: flex;
+.slideshow-container {
+    max-width: 350px;
+    width: 100%;
+    position: relative;
+    margin: auto;
+    background-color: #FAE6D5;
+    box-shadow: 5px 5px 10px rgb(138, 136, 136);
 }
 
-header p{
-    margin: 10px;
-    background-color: #fff8f0;
-    padding: 10px;
-    font-size: 12px;
-}
-
-nav{
-    grid-column: 5;
-    gap: 1500px;    
-}
-
-.box {
-    flex-grow: 1;
+.cards {
+    display: none;
     text-align: center;
-    color: black;
+    animation: aparecer 0.5s ease;
+}
+
+.cards img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    display: block;
+}
+
+.cards h3 {
+    background-color: #F4B883;
     margin: 0;
-    font-size: 15px;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.cards p {
+    background-color: #B27E4B;
+    color: white;
+    margin: 0;
+    padding: 12px;
     font-weight: bold;
 }
 
-main{
-    margin: 30px;
+.antes,
+.depois {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    border: none;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: white;
+    padding: 12px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
-#fraseDia{
+.antes {
+    left: 0;
+}
+
+.depois {
+    right: 0;
+}
+
+.antes:hover,
+.depois:hover {
+    background-color: #B27E4B;
+}
+
+.indicadores {
+    text-align: center;
+    margin: 15px 0;
+}
+
+.pontos {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    background-color: #D6B99D;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pontos.active,
+.pontos:hover {
+    background-color: #8B572A;
+}
+
+.botaoCardapio {
+    display: block;
+    margin: 25px auto;
+    padding: 12px 20px;
+    background-color: #B27E4B;
+    color: white;
+    border: none;
+    box-shadow: 3px 5px 8px gray;
+    font-family: "Merriweather", serif;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.botaoCardapio:hover {
+    background-color: #F4B883;
+    color: #000;
+}
+
+
+.sobreNos {
+  background-color: #FAE6D5;
+  padding: 30px;
+  margin: 5% 10%;
+  box-shadow: 5px 10px 5px rgb(138, 136, 136);
+  font-family: "Merriweather";
+  font-size: 15px;
+  display: grid;
+}
+
+.sobreNos h2 {
+  grid-row: 1;
+}
+
+.sobreNos p {
+  grid-row: 2;
+  grid-column: 1;
+  max-width: 80%;
+}
+
+.sobreNos button {
+  grid-row: 2;
+  grid-column: 2;
+  padding: 10px;
+  min-width: 150px;
+  max-height: 50px;
+  background-color: #B27E4B;
+  border: 1px rgb(187, 187, 187) solid;   
+  box-shadow: 5px 10px 5px rgb(138, 136, 136);
+  font-family: "Merriweather";
+  font-size: 15px;
+}
+
+.conhecaAmbiente {
+  margin: 5% 10%;
+  background-color: #FAE6D5;
+  box-shadow: 5px 10px 5px gray;
+  padding: 20px;
+  display: grid;
+  height: 300px;
+}
+
+.conhecaAmbiente h2, p {
+  grid-column: 2;
+  margin: 20px;
+}
+
+.conhecaAmbiente img {
+  height: 20%;
+  /* width: 20%; */
+  grid-column: 1;
+  grid-row: 2;
+}
+
+button:hover {
+  background-color: #F4B883;
+  color: #000000;
+}
+
+a:hover {
+  background-color: #ad7a4c;
+  color: #000000;
+}
+
+.nossoContato{
     background-color: #FAE6D5;
-    padding: 5px;
-    margin: 15px;   
+    margin: 5% 10%;
+    padding: 30px;
+    /* border-radius: 20px; */
+    box-shadow: 5px 10px 5px gray;
 }
 
-#fraseDia h3{
-    margin: 5px;
+
+
+.nossoContato button{
+    margin: 10px;
+    border: none;
+    background-color: #ad7a4c;
+    color: white;
+    padding: 10px;
+    box-shadow: 5px 5px 10px gray;
+    
 }
 
-#produtosM{
-    display: flex;
-    margin-left: 20%;
-    margin-right: 20%;
-    justify-content: space-between;
+.nossoContato button:hover {
+  background-color: #F4B883;
+  color: #000000;
 }
 
-.produtosMo img{
-    background-color: #d0d0d0;
-    border: 4px rgb(0, 0, 0) solid;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    margin: 0px 20px;
-} 
-
-.produtosMo p{
-    border: 2px rgb(0, 0, 0) solid;
-    margin: 0px 20px;
-    background-color: #F4B883
+footer{
+    background-color: #ad7a4c;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
 }
 
+input, textarea{
+  padding: 10px;
+  width: 95%;
+  margin-bottom: 2%;
+  /* margin: 0% 5%; */
+  box-shadow: 2px 2px 2px gray;
+}
+
+label{
+  margin-left: 1%;
+}
+
+form{
+  padding: 10px;
+}
+
+
+@media (max-width: 500px){
+  .destaque {
+        margin: 10% 5%;
+    }
+
+    .slideshow-container {
+        max-width: 100%;
+    }
+
+    .mySlides img {
+        height: 200px;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0.4;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
