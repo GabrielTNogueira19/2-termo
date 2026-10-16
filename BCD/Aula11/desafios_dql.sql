@@ -99,3 +99,71 @@ HAVING COUNT(*) >= 2;
 SELECT SUM(valor_total) as FATURAMENTO
 FROM pedido
 WHERE status_pedido = 'finalizando';
+
+-- PARTE D - RELACIONAMENTOS
+
+-- 16. Liste cada pedido exibindo id, data, nome do cliente, status e valor total.
+
+SELECT pedido.id_pedido, pedido.data_pedido, cliente.nome as cliente, pedido.valor_total
+FROM pedido AS pedido
+INNER JOIN cliente as cliente
+ON cliente.id_cliente = pedido.id_cliente;
+
+-- 17. Liste cada produto acompanhado do nome de sua categoria.
+
+SELECT produto.id_produto, produto.nome, categoria.nome AS nomeCategoria
+FROM produto as produto
+INNER JOIN categoria as categoria
+ON categoria.id_categoria = produto.id_categoria;
+
+-- 18. Gere um relatório dos itens vendidos: pedido, produto, quantidade,
+--     preço unitário e subtotal.
+
+SELECT pedido.id_pedido, pedido.status_pedido, cliente.nome, produto.nome ,item_pedido.quantidade, item_pedido.quantidade * item_pedido.preco_unitario as Subtotal
+FROM pedido as pedido
+INNER JOIN cliente as cliente
+ON cliente.id_cliente = pedido.id_cliente
+INNER JOIN item_pedido as item_pedido
+ON item_pedido.id_pedido = pedido.id_pedido
+INNER JOIN produto as produto
+ON produto.id_produto = item_pedido.id_produto
+ORDER BY pedido.id_pedido, produto.nome;
+
+-- 19. Mostre todos os clientes, inclusive aqueles que nunca fizeram pedidos.
+
+SELECT cliente.id_cliente, cliente.nome, pedido.id_pedido, pedido.data_pedido
+FROM cliente
+LEFT JOIN pedido
+ON pedido.id_cliente = cliente.id_cliente
+ORDER BY cliente.nome;
+
+-- 20. Liste apenas os clientes que nunca fizeram pedidos.
+
+SELECT cliente.id_cliente, cliente.nome, pedido.id_pedido
+FROM cliente
+LEFT JOIN pedido
+ON pedido.id_cliente = cliente.id_cliente
+WHERE pedido.id_pedido IS NULL;
+
+-- PARTE E - DESAFIO GERENCIAL
+
+-- 21. Informe quantos pedidos FINALIZADOS cada cliente realizou e quanto
+--     cada cliente gastou. Ordene do maior gasto para o menor.
+
+
+-- 22. Mostre a quantidade de produtos e o preço médio de cada categoria.
+
+
+-- 23. Descubra quais produtos possuem preço superior ao preço médio geral.
+
+
+-- 24. Classifique os produtos como Econômico, Intermediário ou Premium.
+--     Defina e informe suas faixas de preço.
+
+
+-- 25. CONSULTA AUTORAL
+-- Pergunta de negócio:
+--
+-- Por que essa informação é útil?
+--
+-- Consulta:

@@ -269,3 +269,125 @@ HAVING COUNT(*) <= 10;
 -- HAVING condicao_agrupar
 -- ORDER BY colunas
 -- LIMIT quantidade
+
+-- --------------------------------------------------------------
+-- --------------------------------------------------------------
+-- PARTE II - RELACOES ENTRE ENTIDADES
+-- JOINS - CONSULTA DE ENTIDADES RELACIONADAS
+-- INNER JOIN - RETORNA REGISTROS QUE POSSUEM CORRESPONDENCIA ENTRE DUAS TABELAS
+
+-- --------------------------------------------------------------
+-- EX01 - PEDIDOS COM O NOME DO CLIENTE
+
+SELECT p.id_pedido, p.data_pedido, c.nome as Cliente, p.Valor_total
+FROM pedido as p
+INNER JOIN cliente as c
+ON c.id_cliente = p.id_cliente;
+
+-- OBS: RELACIONE O CLIENTE CUJO ID_CLIENTE É IGUAL AO ID_CLIENTE FEITO NO PEDIDO
+-- APELIDOS COMO REFERENCIAS OU ALIAS - P E C SAO ALISASES QUE DEIXAM A CONSULTA COM VARIAS TABELAS MAIS CURTA E LEGIVEIS
+
+-- --------------------------------------------------------------
+-- EX02.1 - TODOS OS CLIENTES, INCLUSIVE QUEM NUNCA COMPROU
+-- LEFT JOIN - MANTEM TODOS OS REGISTROS DA ESQUERDA, MESMO SEM CORRESPONDENCIA NA DIREITA
+
+SELECT c.nome, p.id_pedido, p.data_pedido
+FROM cliente as c
+LEFT JOIN pedido as p 
+ON p.id_cliente =  c.id_cliente
+ORDER BY c.nome;
+
+-- --------------------------------------------------------------
+-- EX02.2 - CLIENTES SEM PEDIDOS
+SELECT c.id_cliente, c.nome
+FROM cliente AS c
+LEFT JOIN pedido AS p
+ON p.id_cliente = c.id_cliente
+WHERE p.id_pedido IS NULL;
+
+-- --------------------------------------------------------------
+-- EX03.1 - ITENS DE PEDIDO COM NOME DE PRODUTO
+-- JOIN COM TRES TABELAS
+
+SELECT p.id_pedido, pr.nome as produto, ip.quantidade, ip.preco_unitario, ip.quantidade * ip.preco_unitario as Subtotal
+FROM pedido AS p
+INNER JOIN item_pedido AS ip
+ON ip.id_pedido = p.id_pedido
+INNER JOIN produto AS pr
+ON pr.id_produto = ip.id_produto
+ORDER BY p.id_pedido;
+
+-- --------------------------------------------------------------
+-- EX3.2 - PRODUTO E NOME DE SUA CATEGORIA
+
+SELECT pr.nome as produto, ca.nome as categoria, pr.preco
+FROM produto as pr
+INNER JOIN categoria as ca
+ON ca.id_categoria = pr.id_categoria
+ORDER BY ca.nome, pr.nome;
+
+-- --------------------------------------------------------------
+-- EX04.1 - QUANTIDADE DE PRODUTOS POR CATEGORIA
+-- AGREGACAO E JOIN
+
+SELECT ca.nome as categoria, COUNT(pr.id_produto) as qntd_produtos
+FROM categoria AS ca
+LEFT JOIN produto as pr
+ON pr.id_categoria = ca.id_categoria
+GROUP BY ca.id_categoria, ca.nome
+ORDER BY qntd_produtos DESC;
+
+-- --------------------------------------------------------------
+-- EX04.2 - TOTAL DE COMPRAS POR CLIENTE
+
+SELECT c.nome as cliente, COUNT(p.id_pedido) as qntd_pedidos, SUM(p.valor_total) as total_comprado
+FROM cliente AS c
+INNER JOIN pedido AS p
+ON p.id_cliente = c.id_cliente
+WHERE p.status_pedido = "aberto"
+GROUP BY c.id_cliente, c.nome
+ORDER BY total_comprado DESC;
+
+-- --------------------------------------------------------------
+-- EX05 - VARIAS ENTIDADES OU TABELAS EM UMA CONSULTA DE RELATORIO
+-- RELATORIO COMPLETO DO PEDIDO
+
+SELECT p.id_pedido, DATE_FORMAT(p.data_pedido, '%d %m %y %h:%i') as DATA, c.nome as cliente, pr.nome as produto, ip.quantidade, ip.preco_unitario, ip.quantidade * ip.preco_unitario as SUBTOTAL
+FROM pedido as p
+INNER JOIN cliente as c
+ON c.id_cliente = p.id_cliente
+INNER JOIN item_pedido as ip
+ON ip.id_pedido = p.id_pedido
+INNER JOIN produto as pr
+ON pr.id_produto = ip.id_produto
+ORDER BY p.id_pedido, pr.nome;
+
+-- --------------------------------------------------------------
+-- DATE_FORMAT - (P.DATA_PEDIDO, '%d %m %y %h:%i') - PADRAO DE FORMATACAO BRASILEIRO
+-- D = DIA
+-- M = MES
+-- Y = ANO
+-- H = HORA
+-- I = MINUTOS
+
+-- --------------------------------------------------------------
+-- EX06 - CASE - PERMITE CRIAR CLASSIFICACOES BASEADAS EM REGRAS
+-- CASE - CRIAR CLASSIFICACOES EM RESULTADOS
+
+SELECT nome, preco,
+CASE 
+    WHEN preco < 8.00 THEN 'Economico'  
+    WHEN preco <= 15.00 THEN 'Intermediario'  
+    ELSE  'Premium'
+END AS faixa_precos
+FROM produto
+ORDER BY preco;
+
+-- --------------------------------------------------------------
+-- EX07 - SUBCONSULTA - É UMA CONSULTA DENTRO DE UMA OUTRA CONSULTA
+-- PRODUTOS ACIMA DO PRECO MEDIO
+
+SELECT nome, preco
+FROM produto
+WHERE preco > (SELECT avg(preco) FROM produto)
+ORDER BY preco desc;

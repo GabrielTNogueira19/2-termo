@@ -32,8 +32,12 @@ html {
 body {
   background-color: #FFF5E8;
   margin: 0;
+  padding: 0;
   background-image: url(/LIMA/PROJETO/SmartCoffee/assets/desenhos-manuais-de-fundo-de-cafe-graos-de-cafe-bege-claro_638892-1669.webp);
-  mask-border-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .cabeçalhoSC {
@@ -42,17 +46,23 @@ body {
   text-align: center;
 }
 
+.logoMarca{
+  display: flex;
+  justify-content: center;
+}
+
 .cabeçalhoSC img {
   max-width: 100px;
   height: auto;
   display: block;
-  margin: 0 auto 10px auto;
+  /* margin: 0 auto 10px auto; */
+  margin-bottom: 25px;
 }
 
 .cabeçalhoSC h1 {
   font-family: "Bungee Inline", sans-serif;
   font-size: 24px;
-  margin: 0 0 5px 0;
+  margin: 25px 0 5px 0;
 }
 
 .cabeçalhoSC p {
