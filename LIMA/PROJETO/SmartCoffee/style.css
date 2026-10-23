@@ -44,6 +44,12 @@ body {
   background-color: #F4B883;
   padding: 20px;
   text-align: center;
+
+  /* background-image: url(/LIMA/PROJETO/SmartCoffee/assets/9003395-rabisco-desenho-a-mao-grao-de-cafe-fundo-vetor.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; */
 }
 
 .logoMarca{
@@ -63,6 +69,7 @@ body {
   font-family: "Bungee Inline", sans-serif;
   font-size: 24px;
   margin: 25px 0 5px 0;
+  font-weight: 700;
 }
 
 .cabeçalhoSC p {
@@ -113,6 +120,7 @@ nav a:hover {
     margin: 5% 10%;
     font-family: "Merriweather", serif;
     text-align: center;
+    display: grid;
 }
 
 .destaque h2 {
@@ -296,8 +304,6 @@ a:hover {
     box-shadow: 5px 10px 5px gray;
 }
 
-
-
 .nossoContato button{
     margin: 10px;
     border: none;
@@ -313,6 +319,11 @@ a:hover {
   color: #000000;
 }
 
+.nossoContato label{
+  font-family: "Bungee Inline", sans-serif;
+  font-size: 12px;
+}
+
 footer{
     background-color: #ad7a4c;
     color: #ffffff;
@@ -326,6 +337,8 @@ input, textarea{
   margin-bottom: 2%;
   /* margin: 0% 5%; */
   box-shadow: 2px 2px 2px gray;
+  border: 0;
+  border-radius: 10px;
 }
 
 label{
