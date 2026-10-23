@@ -117,6 +117,9 @@ SELECT * FROM cliente;
 -- Resposta:
 -- A Chave Estrangeira bloqueou a exclusão para garantir a integridade do banco de dados. Como existem registros em outras tabelas vinculados ao `id_cliente = 17`, para proteger a consistência do sistema, é impedida a remoção 
 
+
+-- 16. Crie uma categoria temporária chamada 'Excluir Depois' e remova-a.
+
 INSERT INTO categoria (nome) VALUES
 ('Exluir depois');
 
@@ -124,3 +127,68 @@ set @ultimo_categoria = LAST_INSERT_ID();
 
 DELETE FROM categoria
 WHERE id_categoria = @ultimo_categoria;
+
+
+
+-- PARTE D - INTEGRIDADE E ERROS CONTROLADOS
+-- Execute uma tentativa por vez. Depois deixe o comando problemático comentado.
+
+-- 17. Tente inserir um produto com id_categoria = 9999.
+-- Qual restrição impediu a operação?
+
+INSERT INTO produto (nome, preco, ativo, id_categoria) VALUES
+("sopa", 99.99, FALSE, 9999);
+
+-- R: O erro encontrado foi: Cannot add or update a child row: a foreign key constraint fails ('smartcoffee_dml_gabricl' .'produto' fk_produto_categoria' FOREIGN KEY ('id_categoria' ) REFERENCES " categoria' ("id_categoria')). Esse erro significa que está sendo tentado inserir um registro com um valor de id que não existe na tabela categoria
+
+-- 18. Tente cadastrar um cliente usando 'ana@email.com'.
+-- Qual restrição impediu a operação?
+
+-- Primeiro cadastro:
+INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
+('ana', 'ana@email.com', NULL, 'Piracicaba', TRUE);
+
+-- Segundo cadastro:
+INSERT INTO cliente (nome, email, telefone, cidade, ativo) VALUES
+('ana', 'ana@email.com', NULL, 'Piracicaba', TRUE);
+
+-- R: Como o campo do email foi definido como UNIQUE o erro exibe uma mensagem de entrada duplicada e impede a inserção deste novo cliente
+
+-- 19. Tente criar um pedido com id_cliente = 9999.
+-- Qual restrição impediu a operação?
+
+INSERT INTO pedido (data_pedido, status_pedido, valor_total, id_cliente) VALUES
+(NOW(), 'ABERTO', 0.00, 9999);
+
+-- R: R: O erro encontrado foi: Cannot add or update a child row: a foreign key constraint fails ('smartcoffee_dml_gabricl'.'pedido', 'fk_pedido_cliente' FOREIGN KEY ('id_cliente') REFERENCES 'cliente' ('id_cliente')). Esse erro significa que está sendo tentado inserir um registro com um valor de id que não existe na tabela cliente
+
+-- 20. Escreva em comentários a diferença entre os três erros anteriores.
+
+-- As três questões demonstram os três tipos de restrição cada uma protegendo um aspecto diferente dos dados:
+
+-- Questão 17 (FK produto → categoria): Garante integridade referencial — impede que um produto aponte para uma categoria inexistente.
+-- Questão 18 (UNIQUE email): Garante unicidade — impede que dois clientes compartilhem o mesmo e-mail, mesmo que os demais campos sejam idênticos.
+-- Questão 19 (FK pedido → cliente): Também garante integridade referencial, mas em um par de tabelas diferente — impede que um pedido seja vinculado a um cliente inexistente.
+
+-- PARTE E - DESAFIO COMPLETO COM TRANSAÇÃO
+
+-- 21. Inicie uma transação.
+
+
+-- 22. Dentro dela, cadastre um cliente, um pedido e dois itens relacionados.
+
+
+-- 23. Faça uma consulta com JOIN comprovando que os registros existem
+--     enquanto a transação está aberta.
+
+
+-- 24. Execute ROLLBACK e depois use SELECT para provar que o cadastro foi desfeito.
+
+
+-- 25. Repita o processo com novos dados e finalize usando COMMIT.
+--     Depois consulte os registros persistidos.
+
+
+-- DESAFIO EXTRA
+-- 26. Escolha uma situação realista do SmartCoffee que exija INSERT + UPDATE
+--     ou UPDATE + DELETE lógico. Descreva a regra de negócio e implemente.

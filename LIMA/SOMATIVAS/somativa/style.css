@@ -23,6 +23,10 @@ html {
     scroll-behavior: smooth;
 }
 
+ul{
+    list-style: none;
+}
+
 body {
     margin: 0;
     color: var(--texto);
@@ -85,6 +89,10 @@ nav a {
     border: #ff02f2 1px solid;
 }
 
+.botaoSobre:hover{
+    background-color: var(--rosa);
+}
+
 /* --------------------------------------------- */
 
 .inicioSite{
@@ -131,6 +139,12 @@ figcaption{
     text-decoration: none;
     
 }
+
+.inicioSite a:hover{
+    background-color: transparent;
+    border: var(--rosa) 1px solid;
+}
+
 
 /* --------------------------------------------- */
 
@@ -324,3 +338,27 @@ footer{
     padding: 20px 8%;
 }
 
+@media (max-width: 700px){
+    
+    header {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
+    header a{
+        font-size: 12px;
+    }
+
+    .inicioSite{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inicioSite figure{
+        margin: 10% 2%;
+    }
+
+    
+
+}
