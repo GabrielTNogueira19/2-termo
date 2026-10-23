@@ -5,22 +5,25 @@ const caminho = require('node:path');
 const { json } = require('node:stream/consumers');
 const ARQUIVO = caminho.join(__dirname, 'maquinas.json');
 
-function carregarMaquinas() {
+function carregarMaquinas(arquivo) {
   // TODO 1: ler ARQUIVO com fs.readFileSync(ARQUIVO, 'utf8').
   // TODO 2: converter o texto JSON em array com JSON.parse(...).
   // TODO 3: retornar o array.
-  const texto = fs.readFileSync(ARQUIVO, "utf8");
+  const texto = fs.readFileSync(arquivo, "utf8");
   const maquinas = JSON.parse(texto)
 
-  maquinas.forEach((maquina, indice) => {
-      console.log(`id: ${maquina.id} | nome: ${maquina.nome} | setor: ${maquina.setor} | status: ${maquina.status} | horas de uso: ${maquina.horasUso}`);
-  });
+  return maquinas;
 
   throw new Error('Implementar carregarMaquinas');
 }
 
 function listarMaquinas(maquinas) {
   // TODO 4: percorrer com forEach e apresentar id, nome e status.
+
+  maquinas.forEach((maquina, indice) => {
+      console.log(`id: ${maquina.id} | nome: ${maquina.nome} | setor: ${maquina.setor} | status: ${maquina.status} | horas de uso: ${maquina.horasUso}`);
+  });
+
   throw new Error('Implementar listarMaquinas');
 }
 
@@ -41,7 +44,9 @@ function filtrarPorSetor(maquinas, setor) {
 
 function executar() {
   // TODO 7: chamar carregarMaquinas, listarMaquinas e fazer consultas.
-  // Exemplos a testar: id 3, id 99, status 'manutencao'.
+  
+
+
   console.log('Sistema de consultas industriais - CRUD READ');
 }
 
