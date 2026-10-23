@@ -2,7 +2,8 @@
    --fundo: #09001d;
    --subtitulo: #00b7ff;
    --rosa: #ff02f2;
-   --fundoCards: rgba(56, 35, 139, 0.28);;
+   --fundoCards: rgba(56, 35, 139, 0.28);
+   --texto: #ffffff;
 
 }
 
@@ -226,46 +227,61 @@ figcaption{
 
 /* --------------------------------------------- */
 
-.secaoHoje{
+.secaoHoje {
     margin: 10%;
 }
 
-.secaoHoje h2{
-    color: #fff;
+.secaoHoje h2 {
+    color: var(--texto);
     font-size: 40px;
-    word-spacing: 10px;
+    margin-bottom: 10%;
 }
 
-.card-hoje{
+.secaoHoje ul {
+    list-style: none;
+}
+
+.secaoHoje li {
+    margin-bottom: 50px;    
+}
+
+.card-hoje {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    text-align: left;
+    justify-content: space-between;
+    gap: 40px;
 }
 
-.card-hoje img{
-    background-color: #00b7ff;
-    width: 70%;
+.card-hoje figure {
+    flex: 1;
+    margin: 0;
+}
+
+.card-hoje img {
+    display: block;
+    width: 100%;
     border-radius: 20px;
-    margin: 20px;
 }
 
-.card-hoje h3{
+.texto,
+.textoInverso {
+    flex: 1;
+}
+
+.card-hoje h3 {
     color: var(--rosa);
+    font-size: 30px;
 }
 
-.card-hoje h4{
-    color: white;
+.card-hoje h4 {
+    color: var(--texto);
+    font-size: 20px;
+    margin: 5px 0 10px;
 }
 
-.texto{
-    width: 60%;
+.card-hoje p {
+    color: var(--texto);
 }
-.textoInverso{
-    width: 60%;
-    margin-left: 5%;
-}
-
 /* ---------------------------------------------  */
 
 .secaoSobre {
