@@ -115,10 +115,14 @@ h6{
 }
 
 .inicioSite figure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 0% 5% 0% 20%;
     border-radius: 20px;
     background-color:var(--fundoCards);
     padding: 20px;
+    
 }
 
 .inicioSite img{
@@ -155,13 +159,13 @@ figcaption{
 .secaoClassicos h2{
     color: #fff;
     font-size: 40px;
-    width: 40%;
+    width: 60%;
     word-spacing: 10px;
 }
 
 .secaoClassicos p{
     color: #fff;
-    width: 40%;
+    width: 60%;
 }
 
 .secaoClassicos ul{
@@ -325,12 +329,13 @@ figcaption{
     color: #fff;
 }
 
+
 /* ---------------------------------------------  */
 
-footer{
+footer {
     display: flex;
-    /* flex-direction: column; */
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
     align-items: center;
     color: #fff;
     background-color: #09001d;
@@ -338,7 +343,66 @@ footer{
     padding: 20px 8%;
 }
 
-@media (max-width: 700px){
+.acessos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.titulo h2 {
+    margin: 0;
+    font-size: 14px;
+}
+
+.acessos p {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.links a {
+    color: #00cfff;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.instagram{
+    height: 50px;
+}
+
+.linkedin{
+    height: 30px;
+}
+
+.card-classicos:hover, .card-herois:hover, .card-hoje:hover{
+    transform: translateY(-8px);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
+}
+
+@media(min-width: 900px ){
+    .efeito{
+        display: none;
+    }
+}
+
+@media (max-width: 900px){
     
     header {
         display: flex;
@@ -359,6 +423,61 @@ footer{
         margin: 10% 2%;
     }
 
-    
+    .secaoClassicos h2, .secaoClassicos p{
+        width: 80%;
+    }
 
+    .secaoClassicos ul, .secaoHerois ul, .card-hoje{
+        flex-direction: column;
+    }
+
+    .texto, .textoInverso{
+        display: none;
+    }
+
+    .foto {
+        position: relative;
+        overflow: hidden;
+        border-radius: 14px;
+    }
+    .foto figcaption {
+        position: absolute;
+        inset: auto 0 0 0;
+        padding: 10px;
+        color: white;
+        background: #0F172A;
+        transform: translateY(100%);
+        transition: transform 0.3s ease;
+    }
+    .foto:hover figcaption {
+        transform: translateY(0);   
+    }
+
+    .card-hoje h3 {
+        font-size: 25px;
+    }
+
+    .card-hoje h4 {
+        font-size: 15px;
+    }
+
+    .card-hoje h6 {
+        font-size: 15px;
+    }
+
+    footer, .acessos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .links{
+        flex-direction: row;
+    }
+    
+    .links{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
