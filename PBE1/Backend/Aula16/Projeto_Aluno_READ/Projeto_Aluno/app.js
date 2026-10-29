@@ -9,12 +9,15 @@ function carregarMaquinas(arquivo) {
   // TODO 1: ler ARQUIVO com fs.readFileSync(ARQUIVO, 'utf8').
   // TODO 2: converter o texto JSON em array com JSON.parse(...).
   // TODO 3: retornar o array.
+
   const texto = fs.readFileSync(arquivo, "utf8");
   const maquinas = JSON.parse(texto)
 
-  return maquinas;
+  if (!Array.isArray(maquinas)) {
+    throw new Error('O arquivo JSON deve conter uma lista de maquinas.');
+  }
 
-  // throw new Error('Implementar carregarMaquinas');
+  return maquinas;
 }
 
 function listarMaquinas(maquinas) {
@@ -23,11 +26,11 @@ function listarMaquinas(maquinas) {
   maquinas.forEach((maquina, indice) => {
       console.log(`id: ${maquina.id} | nome: ${maquina.nome} | setor: ${maquina.setor} | status: ${maquina.status} | horas de uso: ${maquina.horasUso} \n`);
   });
-  // throw new Error('Implementar listarMaquinas');
 }
 
 function buscarPorId(maquinas, id) {
   // TODO 5: encontrar com find(). O ID recebido deve ser número.
+
   const idProcurado = maquinas.find(maquina => maquina.id === id);
 
   if (idProcurado !== undefined) {
@@ -35,8 +38,6 @@ function buscarPorId(maquinas, id) {
   } else{
       return "Maquina Nao Encontrada";
   }
-  
-  // throw new Error('Implementar buscarPorId');
 }
 
 function filtrarPorStatus(maquinas, status) {
@@ -76,21 +77,25 @@ function executar() {
   
   console.log('Sistema de consultas industriais - CRUD READ');
 
-  
-  const maquinas = carregarMaquinas(ARQUIVO); 
-  listarMaquinas(maquinas);
+  try{
+    const maquinas = carregarMaquinas(ARQUIVO); 
+    
+    listarMaquinas(maquinas);
 
-  console.log("Buscas por ID:")
-  console.log(buscarPorId(maquinas, 3))
-  console.log(buscarPorId(maquinas, 99))
-  console.log("\nFiltro por status:")
-  console.log(filtrarPorStatus(maquinas, "manutencao"))
-  console.log(filtrarPorStatus(maquinas, "operando"))
-  console.log("\nFiltro por setor:")
-  console.log(filtrarPorSetor(maquinas, "inexistente"))
-  console.log(filtrarPorSetor(maquinas, "Usinagem")
-)
-  
+    console.log("Buscas por ID:")
+    console.log(buscarPorId(maquinas, 3))
+    console.log(buscarPorId(maquinas, 99))
+    console.log("\nFiltro por status:")
+    console.log(filtrarPorStatus(maquinas, "manutencao"))
+    console.log(filtrarPorStatus(maquinas, "operando"))
+    console.log("\nFiltro por setor:")
+    console.log(filtrarPorSetor(maquinas, "inexistente"))
+    console.log(filtrarPorSetor(maquinas, "Usinagem"))
+  } catch(erro){
+    
+    console.error('Erro ao ler ou consultar o arquivo:', erro.message);
+    process.exitCode = 1;
+  }
 }
 
 if (require.main === module) executar();
