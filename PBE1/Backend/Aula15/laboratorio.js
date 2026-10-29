@@ -46,9 +46,9 @@ const maquinas = JSON.parse(texto);
 // }
 
 // --- ex6 ---
-// const emManutencao = maquinas.filter(
-//     maquina => maquina.status === "Manutenção"
-// );
+const emManutencao = maquinas.filter(
+    maquina => maquina.status === "Manutencao"
+);
 
 // console.log(emManutencao.length);
 // console.log(emManutencao);
@@ -124,27 +124,27 @@ const maquinas = JSON.parse(texto);
 // Desafio D - Avançado. Crie uma função que receba um status por parâmetro e devolva o array
 // filtrado. Teste com status existente e inexistente.
 
-const entrada = require('readline-sync');
+// const entrada = require('readline-sync');
 
-function filtrarStatus(statusDesejado) {
-    const filtro = maquinas.filter(
-        maquina => maquina.status.toLowerCase() === statusDesejado.toLowerCase()
-    );
+// function filtrarStatus(statusDesejado) {
+//     const filtro = maquinas.filter(
+//         maquina => maquina.status.toLowerCase() === statusDesejado.toLowerCase()
+//     );
 
-    return filtro;
-}
+//     return filtro;
+// }
 
-const status = entrada.question("Qual status voce deseja consultar? ");
-const maquinasFiltro = filtrarStatus(status);
+// const status = entrada.question("Qual status voce deseja consultar? ");
+// const maquinasFiltro = filtrarStatus(status);
 
-if (maquinasFiltro.length > 0) {
-    console.log(`\nMaquinas com o status "${status}":\n`);
+// if (maquinasFiltro.length > 0) {
+//     console.log(`\nMaquinas com o status "${status}":\n`);
 
-    maquinasFiltro.forEach(maquina => {
-        console.log(`ID: ${maquina.id} | Nome: ${maquina.nome} | Setor: ${maquina.setor}`);
-    });
+//     maquinasFiltro.forEach(maquina => {
+//         console.log(`ID: ${maquina.id} | Nome: ${maquina.nome} | Setor: ${maquina.setor}`);
+//     });
 
-    console.log(`\nTotal encontrado: ${maquinasFiltro.length}\n`);
-} else {
-    console.log(`\nNenhuma maquina encontrada com o status "${status}".\n`);
-}
+//     console.log(`\nTotal encontrado: ${maquinasFiltro.length}\n`);
+// } else {
+//     console.log(`\nNenhuma maquina encontrada com o status "${status}".\n`);
+// }
