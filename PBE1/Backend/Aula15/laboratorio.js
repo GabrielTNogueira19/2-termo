@@ -46,9 +46,9 @@ const maquinas = JSON.parse(texto);
 // }
 
 // --- ex6 ---
-const emManutencao = maquinas.filter(
-    maquina => maquina.status === "Manutencao"
-);
+// const emManutencao = maquinas.filter(
+//     maquina => maquina.status === "Manutencao"
+// );
 
 // console.log(emManutencao.length);
 // console.log(emManutencao);
