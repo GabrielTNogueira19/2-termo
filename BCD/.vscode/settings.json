@@ -1,0 +1,11 @@
+{
+    "coffeebreak.emails": [
+        "gabriel.tnogueira19@gmail.com"
+    ],
+    "coffeebreak.mentions": {
+        "GabrielTNogueira": {
+            "email": "gabriel.tnogueira19@gmail.com"
+        }
+    },
+    "clock.active": true
+}
