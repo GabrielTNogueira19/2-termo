@@ -29,7 +29,7 @@ CREATE TABLE livro(
     autor_livro VARCHAR(120) NOT NULL,
     isbn CHAR(13) NOT NULL UNIQUE,
     ano_publicacao INT,
-    quantidade_disponivel INT NOT NULL CHECK (quantidade_disponivel > 0),
+    quantidade_disponivel INT NOT NULL CHECK (quantidade_disponivel >= 0),
 
     CONSTRAINT pk_livro PRIMARY KEY (id_livro)
 );
@@ -95,6 +95,13 @@ INSERT INTO emprestimo VALUES
 (DEFAULT, NOW(), '2026-11-20', NULL, 'aberto', 3, 4);
 
 -- 9. UPDATE
+
+SELECT id_usuario, telefone FROM usuario
+WHERE telefone IS NULL;
+
+UPDATE usuario
+SET telefone = '1999999992'
+WHERE telefone IS NULL;
 
 -- 10. Atualização em lote
 
@@ -167,6 +174,42 @@ SELECT ROUND(MIN(quantidade_disponivel)) AS MENOR_ESTOQUE,
     ROUND(AVG(quantidade_disponivel)) AS MEDIA_ESTOQUE
 FROM livro;
 
--- -- 17. INNER JOIN
+-- 17. INNER JOIN
 
--- SELECT e.
+SELECT e.id_emprestimo, u.nome_usuario AS usuario, l.titulo_livro AS livro, e.data_emprestimo, e.status_emprestimo
+FROM emprestimo as e
+INNER JOIN usuario as u
+ON e.id_usuario = u.id_usuario
+INNER JOIN livro as l
+ON e.id_livro = l.id_livro
+ORDER BY e.id_emprestimo;
+
+-- 18. JOIN + WHERE
+
+-- Vou adicionar um emprestimo com status 'devolvido' pois não tenho nenhum
+INSERT INTO emprestimo VALUES (DEFAULT, NOW(), '2026-11-15', '2026-11-17', 'devolvido', 4, 3);
+
+SELECT e.id_emprestimo, u.nome_usuario AS USUARIO, l.titulo_livro AS LIVRO, e.data_emprestimo, e.status_emprestimo
+FROM emprestimo as e
+INNER JOIN usuario as u
+ON e.id_usuario = u.id_usuario
+INNER JOIN livro as l
+ON e.id_livro = l.id_livro
+WHERE e.status_emprestimo = 'aberto'
+ORDER BY e.id_emprestimo;
+
+-- 19. GROUP BY
+
+-- Vou adicionar mais um emprestimo a alguem que ja tenha
+INSERT INTO emprestimo VALUES (DEFAULT, NOW(), '2026-11-15', NULL, 'aberto', 1, 2);
+
+
+SELECT u.nome_usuario AS USUARIO, COUNT(e.id_emprestimo) AS QUANTIDADE_EMPRESTIMOS
+FROM usuario AS u
+INNER JOIN emprestimo AS e
+ON e.id_usuario = u.id_usuario
+GROUP BY u.id_usuario, u.nome_usuario
+ORDER BY QUANTIDADE_EMPRESTIMOS DESC;
+
+-- 20. LEFT JOIN
+
