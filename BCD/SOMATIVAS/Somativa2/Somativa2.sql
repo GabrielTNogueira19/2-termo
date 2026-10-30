@@ -50,6 +50,29 @@ CREATE TABLE emprestimo(
     CONSTRAINT fk_livro_emprestimo FOREIGN KEY (id_livro) REFERENCES livro (id_livro)
 );
 
+
+-- Tabelas Adicionais
+
+CREATE TABLE categoria(
+    id_categoria INT AUTO_INCREMENT,
+    nome_categoria VARCHAR(80) NOT NULL UNIQUE,
+
+    CONSTRAINT pk_categoria PRIMARY KEY (id_categoria)
+);
+
+CREATE TABLE compra(
+    id_compra INT AUTO_INCREMENT,
+    data_compra DATETIME DEFAULT CURRENT_TIMESTAMP,
+    valor_compra DECIMAL(10, 2) DEFAULT 0 NOT NULL,
+    forma_pagamento ENUM('pix', 'debito', 'credito', 'dinheiro') DEFAULT 'dinheiro' NOT NULL,
+    id_usuario INT NOT NULL,
+    id_livro INT NOT NULL,
+
+    CONSTRAINT pk_compra PRIMARY KEY (id_compra),
+    CONSTRAINT fk_usuario_compra FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
+    CONSTRAINT fk_livro_compra FOREIGN KEY (id_livro) REFERENCES livro (id_livro)
+);
+
 -- 5. ALTER TABLE
 
 ALTER TABLE livro ADD editora VARCHAR(100);
@@ -213,3 +236,112 @@ ORDER BY QUANTIDADE_EMPRESTIMOS DESC;
 
 -- 20. LEFT JOIN
 
+-- Vou adicionar mais um usuario porem que não possua emprestimos
+INSERT INTO usuario VALUES (DEFAULT, 'Luana Lima', 'luana@email.com', '1999999994', TRUE);
+
+SELECT u.nome_usuario, e.id_emprestimo, e.data_emprestimo
+FROM usuario as u
+LEFT JOIN emprestimo as e 
+ON e.id_usuario =  u.id_usuario
+ORDER BY u.nome_usuario;
+
+
+-- -------------------------------------------------------------------
+-- FASE 4 — TCL, TRANSAÇÕES E INTEGRIDADE
+
+-- 21. Transação de empréstimo
+
+START TRANSACTION;
+
+SELECT id_livro, quantidade_disponivel FROM livro
+WHERE id_livro = 1;
+
+INSERT INTO emprestimo VALUES (DEFAULT, NOW(), '2026-11-15', NULL, 'aberto', 2, 1);
+
+UPDATE livro
+SET quantidade_disponivel = quantidade_disponivel - 1
+WHERE id_livro = 1;
+
+
+SELECT id_livro, quantidade_disponivel FROM livro
+WHERE id_livro = 1;
+
+COMMIT;
+
+-- 22. ROLLBACK
+
+START TRANSACTION;
+
+UPDATE livro
+SET quantidade_disponivel = 67
+WHERE id_livro = 6;
+
+SELECT id_livro, quantidade_disponivel FROM livro
+WHERE id_livro = 6;
+
+ROLLBACK;
+
+-- 23. SAVEPOINT
+
+START TRANSACTION;
+
+UPDATE livro
+SET quantidade_disponivel = 30
+WHERE id_livro = 5;
+
+SAVEPOINT reajuste_livro5;
+
+UPDATE livro
+SET quantidade_disponivel = 130
+WHERE id_livro = 4;
+
+ROLLBACK TO SAVEPOINT reajuste_livro5;
+
+-- 24. Transação de devolução
+
+START TRANSACTION;
+
+SELECT id_emprestimo, id_livro, status_emprestimo FROM emprestimo
+WHERE status_emprestimo = 'aberto'; 
+
+UPDATE emprestimo
+SET 
+    status_emprestimo = 'devolvido',
+    data_devolucao = NOW()
+WHERE id_emprestimo = 1;
+
+UPDATE livro
+SET quantidade_disponivel = quantidade_disponivel + 1
+WHERE id_livro = 6;
+
+SELECT * FROM emprestimo;
+SELECT quantidade_disponivel FROM livro WHERE id_livro = 6;
+
+COMMIT;
+
+-- Desafio Final de Integridade
+
+-- 25. Análise técnica
+
+-- Para cada situação abaixo, identifique o mecanismo mais adequado entre constraint, integridade referencial, transação ou regra da aplicação, e justifique tecnicamente sua escolha.
+
+-- Cadastrar dois usuários com o mesmo e-mail.
+-- Resposta: Regra de aplicação: UNIQUE
+
+-- Cadastrar dois livros com o mesmo ISBN.
+-- Resposta: Regra de aplicação: UNIQUE
+
+-- Permitir quantidade disponível negativa.
+-- Resposta: Regra de aplicação: CHECK
+
+-- Criar empréstimo para usuário inexistente.
+-- Resposta: Integridade referencial
+
+-- Excluir livro com histórico de empréstimos.
+-- Resposta: Constraint
+
+-- Gravar empréstimo e falhar na redução do estoque.
+-- Resposta: Transação
+
+-- Emprestar livro cuja quantidade disponível seja zero.
+-- Resposta: Regra de aplicação
