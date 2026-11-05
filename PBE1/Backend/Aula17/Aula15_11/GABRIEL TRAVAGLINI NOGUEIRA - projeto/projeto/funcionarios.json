@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "nomeFuncionario": "Jeferson Dias",
+    "idadeFuncionario": 41,
+    "funcaoFuncionario": "Pedreiro"
+  },
+  {
+    "id": 2,
+    "nomeFuncionario": "Bruno Silva",
+    "idadeFuncionario": 32,
+    "funcaoFuncionario": "Marceneiro"
+  },
+  {
+    "id": 3,
+    "nomeFuncionario": "Ana Julia Moreira",
+    "idadeFuncionario": 25,
+    "funcaoFuncionario": "Desenvolvedora"
+  },
+  {
+    "id": 4,
+    "nomeFuncionario": "Pedro Miguel Costa",
+    "idadeFuncionario": 20,
+    "funcaoFuncionario": "Mecanico"
+  }
+]

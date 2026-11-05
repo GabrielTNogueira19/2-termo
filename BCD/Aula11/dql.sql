@@ -1,3 +1,4 @@
+-- Active: 1788519225521@@127.0.0.1@3306@smartcoffee_dml_gabriel
 -- AULA 11 - DQL (DATA QUERY LANGUAGE) - LINGUAGEM DE COSULTA DE DADOS
 
 -- --------------------------------------------------------------
