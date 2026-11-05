@@ -1,0 +1,39 @@
+.imagem-intro img{
+    width: 1200;
+    height: 800;
+}
+
+.imagem-resp img, .imagem-resp img{
+    display: block;
+    max-width: 100%;
+    height: autox;
+}
+
+.imagem-rec img{
+    width: 100%;
+    aspect-ratio: 16/10;
+    object-fit: cover;
+    object-position: 70% center;
+    /* cover - Preenche a caixa, aceitando recorte +/
+    /* contain - mostra o conteúdo inteiro */
+    /* fill - preenche sem preservar a proporcao */
+    /* scale-down escolhe entre none e contain para evitar ampliar */
+}
+
+.flex{
+    display: flex;
+}
+
+.imagem-capa img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.imagem-ava img{
+    width: 120px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px black solid;
+}
