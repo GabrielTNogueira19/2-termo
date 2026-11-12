@@ -268,7 +268,7 @@ START TRANSACTION;
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 1;
 
-INSERT INTO locacao VALUES (DEFAULT, NOW(), '2026-11-15', NULL, 'ABERTA', 2, 1);
+INSERT INTO locacao VALUES (DEFAULT, NOW(), '2026-11-15', NULL, 'ABERTA', 7, 1);
 
 UPDATE jogo
 SET quantidade_disponivel = quantidade_disponivel - 1
@@ -307,29 +307,71 @@ START TRANSACTION;
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 3;
 
--- alterando a quantidade no jogo de id 3 de 52 para 115
+-- alterando a quantidade no jogo de id 3 de 10 para 15
 UPDATE jogo
 SET quantidade_disponivel = 15
 WHERE id_jogo = 3;
 
+-- verificando novamente a quantidade no jogo de id 3
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 3;
 
+-- salvando savepoint apos mudar a quantidade no jogo de id 3
 SAVEPOINT alteracao_id_3;
 
+-- verificando quantidade atual no jogo de id 4
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 4;
 
+-- alterando a quantidade no jogo de id 4 de 52 para 115
 UPDATE jogo
 SET quantidade_disponivel = 115
 WHERE id_jogo = 4;
 
+-- verificando novamente a quantidade no jogo de id 4
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 4;
 
+-- retornando ao ponto de salvamento
 ROLLBACK TO SAVEPOINT alteracao_id_3;
 
+-- verificando novamente a quantidade no jogo de id 4
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 4;
 
+-- finalizando Transaction
 COMMIT;
+
+-- 25:
+
+START TRANSACTION;
+
+SELECT id_locacao, id_jogo, id_cliente, status_locacao FROM locacao
+WHERE status_locacao = 'ABERTA';
+
+UPDATE locacao
+SET 
+    status_locacao = 'DEVOLVIDA',
+    data_devolucao = NOW()
+WHERE id_locacao = 6;
+
+UPDATE jogo
+SET quantidade_disponivel = quantidade_disponivel + 1
+WHERE id_jogo = 1;
+
+SELECT * FROM locacao;
+SELECT quantidade_disponivel FROM jogo 
+WHERE id_jogo = 1;
+
+COMMIT;
+
+-- --------------------------------------------------------------------------
+-- ANALISE TECNICA
+
+-- A) REGRA DE APLICACAO: UNIQUE
+-- B) REGRA DE APLICACAO: UNIQUE
+-- C) REGRA DE APLICACAO: CHECK
+-- D) INTEGRIDADE REFERENCIAL
+-- E) CONTRAINT FK
+-- F) INTEGRIDADE REFERENCIAL
+-- G) INTEGRIDADE REFERENCIAL
