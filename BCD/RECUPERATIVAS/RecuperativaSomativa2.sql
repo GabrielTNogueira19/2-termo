@@ -134,22 +134,31 @@ INSERT INTO locacao VALUES
 (DEFAULT, NOW(), '2026-12-05', NULL, 'ABERTA', 2, 5),
 (DEFAULT, NOW(), '2026-12-05', NULL, 'ABERTA', 3, 4);
 
+SELECT * FROM locacao;
+
 -- 10:
 
 SELECT id_cliente, telefone
 FROM cliente
 WHERE telefone is NULL;
 
-
 UPDATE cliente
 SET telefone = '1999999992'
 WHERE id_cliente = 3;
 
+SELECT id_cliente, telefone
+FROM cliente
+WHERE id_cliente = 3;
+
 -- 11:
+
+SELECT titulo, quantidade_disponivel FROM jogo;
 
 UPDATE jogo
 SET quantidade_disponivel = quantidade_disponivel + 2
 WHERE ano_lancamento >= 2000;
+
+SELECT titulo, quantidade_disponivel FROM jogo;
 
 -- 12:
 
@@ -161,6 +170,8 @@ set @ultimo_cliente = LAST_INSERT_ID();
 -- Deletando usuario novo criado 
 DELETE FROM cliente
 WHERE id_cliente = @ultimo_cliente;
+
+SELECT * FROM cliente;
 
 -- Deletando usuario com locacao
 DELETE FROM cliente
@@ -249,7 +260,7 @@ ORDER BY QUANTIDADE_LOCACOES DESC;
 
 -- 21: 
 
--- Vou adicionar um usuario porem que não possua emprestimos
+-- Vou adicionar um usuario porem que não possua locacoes
 INSERT INTO cliente VALUES (DEFAULT, 'Davi Ferreira', 'davi@email.com', '1999999995', TRUE);
 
 SELECT c.nome_cliente, l.id_locacao, l.data_retirada
@@ -268,7 +279,7 @@ START TRANSACTION;
 SELECT id_jogo, quantidade_disponivel FROM jogo
 WHERE id_jogo = 1;
 
-INSERT INTO locacao VALUES (DEFAULT, NOW(), '2026-11-15', NULL, 'ABERTA', 7, 1);
+INSERT INTO locacao VALUES (DEFAULT, NOW(), '2026-11-15', NULL, 'ABERTA', 2, 1);
 
 UPDATE jogo
 SET quantidade_disponivel = quantidade_disponivel - 1
@@ -375,3 +386,8 @@ COMMIT;
 -- E) CONTRAINT FK
 -- F) INTEGRIDADE REFERENCIAL
 -- G) INTEGRIDADE REFERENCIAL
+
+
+
+-- Excluindo banco para testar tudo de novo
+DROP DATABASE retrogame_recuperacao_gabriel;
